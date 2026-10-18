@@ -1,0 +1,277 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GameZone - Portal de Jogos</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0b1020;
+      color: white;
+    }
+
+    header {
+      padding: 25px 8%;
+      background: #151b30;
+      border-bottom: 2px solid #8b5cf6;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    header h1 {
+      margin: 0;
+      color: #a78bfa;
+    }
+
+    header a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 55px 20px;
+      background: linear-gradient(135deg, #24124d, #10172c);
+    }
+
+    .hero h2 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      color: #cbd5e1;
+    }
+
+    .busca {
+      width: min(90%, 500px);
+      padding: 14px;
+      margin-top: 18px;
+      border: 1px solid #8b5cf6;
+      border-radius: 10px;
+      background: #0b1020;
+      color: white;
+      font-size: 16px;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: auto;
+      padding: 30px 20px;
+    }
+
+    .jogos {
+      display: grid;
+      grid-template-columns: repeat(
+        auto-fit, minmax(230px, 1fr)
+      );
+      gap: 22px;
+    }
+
+    .card {
+      padding: 22px;
+      border-radius: 15px;
+      background: #171f35;
+      border: 1px solid #303b58;
+      text-align: center;
+    }
+
+    .icone {
+      font-size: 60px;
+      margin: 8px;
+    }
+
+    button {
+      border: none;
+      border-radius: 8px;
+      padding: 12px 20px;
+      background: #8b5cf6;
+      color: white;
+      font-weight: bold;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #7040df;
+    }
+
+    .jogo-area {
+      display: none;
+      margin-top: 30px;
+      padding: 25px;
+      border-radius: 15px;
+      background: #171f35;
+      text-align: center;
+    }
+
+    #alvo {
+      font-size: 65px;
+      margin: 20px;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    footer {
+      padding: 25px;
+      text-align: center;
+      color: #94a3b8;
+      background: #151b30;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>🎮 GameZone</h1>
+    <a href="#">Início</a>
+  </header>
+
+  <section class="hero">
+    <h2>Seu mundo de jogos!</h2>
+    <p>Descubra jogos e divirta-se gratuitamente.</p>
+
+    <input
+      class="busca"
+      id="busca"
+      type="text"
+      placeholder="🔎 Procurar um jogo..."
+      oninput="procurarJogo()"
+    >
+  </section>
+
+  <main>
+    <h2>🔥 Jogos disponíveis</h2>
+
+    <div class="jogos" id="listaJogos">
+      <article class="card" data-nome="Clique no Alvo">
+        <div class="icone">🎯</div>
+        <h3>Clique no Alvo</h3>
+        <p>Clique no alvo e marque pontos!</p>
+        <button onclick="abrirJogo()">
+          Jogar agora
+        </button>
+      </article>
+
+      <article class="card" data-nome="Em breve">
+        <div class="icone">🏎️</div>
+        <h3>Corrida</h3>
+        <p>Um jogo de corrida pode vir aqui.</p>
+        <button onclick="alert('Novo jogo em breve!')">
+          Em breve
+        </button>
+      </article>
+
+      <article class="card" data-nome="Em breve">
+        <div class="icone">🧩</div>
+        <h3>Quebra-cabeça</h3>
+        <p>Desafie sua inteligência.</p>
+        <button onclick="alert('Novo jogo em breve!')">
+          Em breve
+        </button>
+      </article>
+    </div>
+
+    <section class="jogo-area" id="areaJogo">
+      <h2>🎯 Clique no Alvo</h2>
+      <p>Pontos: <strong id="pontos">0</strong></p>
+      <p>Tempo: <strong id="tempo">15</strong> segundos</p>
+
+      <div id="alvo" onclick="clicarAlvo()">🎯</div>
+
+      <p id="mensagem">Clique em começar para jogar!</p>
+
+      <button id="inicio" onclick="iniciarJogo()">
+        Começar jogo
+      </button>
+      <button onclick="fecharJogo()">Fechar</button>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 GameZone | Feito para quem ama jogos 🎮
+  </footer>
+
+  <script>
+    let pontos = 0;
+    let tempo = 15;
+    let intervalo;
+    let jogando = false;
+
+    function procurarJogo() {
+      const busca = document
+        .getElementById("busca")
+        .value.toLowerCase();
+
+      document.querySelectorAll(".card").forEach(card => {
+        card.style.display =
+          card.innerText.toLowerCase().includes(busca)
+            ? ""
+            : "none";
+      });
+    }
+
+    function abrirJogo() {
+      document.getElementById("areaJogo").style.display = "block";
+      document.getElementById("areaJogo")
+        .scrollIntoView({ behavior: "smooth" });
+    }
+
+    function fecharJogo() {
+      clearInterval(intervalo);
+      jogando = false;
+      document.getElementById("areaJogo").style.display = "none";
+    }
+
+    function iniciarJogo() {
+      clearInterval(intervalo);
+
+      pontos = 0;
+      tempo = 15;
+      jogando = true;
+
+      document.getElementById("pontos").textContent = pontos;
+      document.getElementById("tempo").textContent = tempo;
+      document.getElementById("mensagem").textContent =
+        "Clique no alvo o mais rápido que puder!";
+      document.getElementById("inicio").textContent =
+        "Recomeçar";
+
+      intervalo = setInterval(() => {
+        tempo--;
+        document.getElementById("tempo").textContent = tempo;
+
+        if (tempo <= 0) {
+          clearInterval(intervalo);
+          jogando = false;
+          document.getElementById("mensagem").textContent =
+            "Fim de jogo! Você fez " + pontos + " pontos.";
+        }
+      }, 1000);
+    }
+
+    function clicarAlvo() {
+      if (!jogando) return;
+
+      pontos++;
+      document.getElementById("pontos").textContent = pontos;
+
+      const emojis = ["🎯", "🎈", "⭐", "💎"];
+      document.getElementById("alvo").textContent =
+        emojis[Math.floor(Math.random() * emojis.length)];
+    }
+  </script>
+</body>
+</html>

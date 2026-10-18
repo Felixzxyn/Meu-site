@@ -1,0 +1,300 @@
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090817">
+  <meta name="description" content="Acesse todas as redes sociais de Felizxzyn: YouTube, TikTok e Discord.">
+  <title>Felizxzyn | Minhas Redes</title>
+
+  <style>
+    :root {
+      --bg: #090817;
+      --panel: #15122a;
+      --purple: #a855f7;
+      --blue: #38bdf8;
+      --text: #f8f7ff;
+      --muted: #b9b4d5;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 35px 16px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(
+          circle at 50% 10%,
+          #55269b70,
+          transparent 40%
+        ),
+        radial-gradient(
+          circle at 90% 85%,
+          #07598540,
+          transparent 35%
+        ),
+        var(--bg);
+    }
+
+    .container {
+      width: 100%;
+      max-width: 470px;
+      text-align: center;
+      animation: aparecer .8s ease both;
+    }
+
+    @keyframes aparecer {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .avatar {
+      width: 112px;
+      height: 112px;
+      margin: 0 auto 20px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      font-size: 52px;
+      background: linear-gradient(135deg, #a855f7, #2563eb);
+      border: 3px solid #ffffff35;
+      box-shadow:
+        0 0 20px #a855f770,
+        0 0 55px #3b82f640;
+    }
+
+    h1 {
+      font-size: clamp(32px, 8vw, 42px);
+      font-weight: 900;
+      letter-spacing: 2px;
+      margin-bottom: 9px;
+      overflow-wrap: anywhere;
+    }
+
+    h1 span {
+      color: #bd8aff;
+      text-shadow: 0 0 22px #a855f780;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: 15px;
+      margin-bottom: 22px;
+    }
+
+    .label {
+      color: var(--blue);
+      font-size: 11px;
+      font-weight: bold;
+      letter-spacing: 3px;
+      margin-bottom: 23px;
+    }
+
+    .links {
+      display: grid;
+      gap: 15px;
+    }
+
+    .social {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      width: 100%;
+      padding: 18px;
+      border: 1px solid #a855f750;
+      border-radius: 16px;
+      background: linear-gradient(
+        120deg,
+        #211738eF,
+        #101a31ef
+      );
+      text-align: left;
+      color: var(--text);
+      text-decoration: none;
+      transition:
+        transform .2s ease,
+        border-color .2s ease,
+        box-shadow .2s ease;
+    }
+
+    .social:hover {
+      transform: translateY(-4px);
+      border-color: var(--purple);
+      box-shadow:
+        0 8px 28px #a855f725,
+        0 0 18px #38bdf815;
+    }
+
+    .social:focus-visible {
+      outline: 2px solid var(--blue);
+      outline-offset: 4px;
+    }
+
+    .icon {
+      width: 48px;
+      height: 48px;
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+      border-radius: 13px;
+      font-size: 25px;
+      background: #ffffff0d;
+    }
+
+    .youtube .icon {
+      color: #ff5555;
+      background: #ff33331a;
+    }
+
+    .tiktok .icon {
+      color: #65e8f5;
+      background: #38bdf81a;
+    }
+
+    .discord .icon {
+      color: #9aa9ff;
+      background: #818cf81a;
+    }
+
+    .details {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .details strong {
+      display: block;
+      font-size: 17px;
+      margin-bottom: 4px;
+    }
+
+    .details small {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .arrow {
+      color: #bd8aff;
+      font-size: 23px;
+      flex-shrink: 0;
+    }
+
+    .footer {
+      margin-top: 28px;
+      color: #8f89ad;
+      font-size: 12px;
+      line-height: 1.8;
+    }
+
+    .footer strong {
+      color: #bd8aff;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="container">
+
+    <div class="avatar" aria-hidden="true">🎮</div>
+
+    <h1>FELIX<span>ZYZN</span></h1>
+
+    <p class="subtitle">
+      🎮 Criador de conteúdo · Gamer
+    </p>
+
+    <p class="label">✦ MINHAS REDES SOCIAIS ✦</p>
+
+    <nav class="links" aria-label="Minhas redes sociais">
+
+      <!-- YOUTUBE -->
+      <a
+        class="social youtube"
+        href="https://www.youtube.com/@felixzxyn01"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Visitar meu canal no YouTube"
+      >
+        <span class="icon" aria-hidden="true">▶</span>
+        <span class="details">
+          <strong>YouTube</strong>
+          <small>Inscreva-se no meu canal</small>
+        </span>
+        <span class="arrow" aria-hidden="true">↗</span>
+      </a>
+
+      <!-- TIKTOK -->
+      <a
+        class="social tiktok"
+        href="https://www.tiktok.com/@felixzxyn01"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Visitar meu perfil no TikTok"
+      >
+        <span class="icon" aria-hidden="true">♪</span>
+        <span class="details">
+          <strong>TikTok</strong>
+          <small>Confira meus vídeos</small>
+        </span>
+        <span class="arrow" aria-hidden="true">↗</span>
+      </a>
+
+      <!-- DISCORD -->
+      <a
+        class="social discord"
+        href="https://discord.gg/29AwS99C7"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Entrar na comunidade do Discord"
+      >
+        <span class="icon" aria-hidden="true">🎧</span>
+        <span class="details">
+          <strong>Discord</strong>
+          <small>Faça parte da comunidade</small>
+        </span>
+        <span class="arrow" aria-hidden="true">↗</span>
+      </a>
+
+      <!-- ADICIONE OUTRAS REDES AQUI, SE QUISER -->
+
+    </nav>
+
+    <footer class="footer">
+      <p>Feito com 💜 por <strong>Felizxzyn</strong></p>
+      <p>© <span id="year"></span> · Todos os direitos reservados</p>
+    </footer>
+
+  </main>
+
+  <script>
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
+</body>
+</html>
